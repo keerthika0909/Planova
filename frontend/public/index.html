@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Planova</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+tailwind.config = {
+  darkMode: "class",
+
+  theme: {
+    extend: {
+      colors: {
+        primary: "#8B5CF6",
+      },
+    },
+  },
+};
+</script>
+</head>
+
+<body class="${darkMode ? "bg-slate-950" : "bg-slate-100"}">
+  <div id="root"></div>
+</body>
+</html>
