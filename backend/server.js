@@ -9,10 +9,17 @@ const app = express();
 /* Middleware */
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      process.env.FRONTEND_URL, // add your Vercel URL in Railway environment variables
-    ],
+    origin: function (origin, callback) {
+      const allowed = [
+        "http://localhost:3000",
+        "https://planova-nine.vercel.app",
+      ];
+      if (!origin || allowed.includes(origin) || origin.endsWith(".vercel.app")) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
