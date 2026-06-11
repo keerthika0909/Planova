@@ -9,21 +9,20 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
-tailwind.config = {
-  darkMode: "class",
-
-  theme: {
-    extend: {
-      colors: {
-        primary: "#8B5CF6",
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#8B5CF6",
+          },
+        },
       },
-    },
-  },
-};
-</script>
+    };
+  </script>
 </head>
 
-<body class="${darkMode ? "bg-slate-950" : "bg-slate-100"}">
+<body>
   <div id="root"></div>
 </body>
 </html>
