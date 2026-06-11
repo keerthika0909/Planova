@@ -1,31 +1,11 @@
-import axios from "axios";
+import api from "./api";
 
-const API_URL = process.env.REACT_APP_API_URL;
+export const getUsers = async () => {
+  const response = await api.get("/users");
+  return response.data;
+};
 
-const response = await axios.get(
-  `${API_URL}/api/users`
-);
-
-export const addMember =
-async (boardId, userId) => {
-
-  const token =
-    localStorage.getItem("token");
-
-  const response =
-    await axios.post(
-      `${API}/members/add`,
-      {
-        boardId,
-        userId,
-      },
-      {
-        headers: {
-          Authorization:
-            `Bearer ${token}`,
-        },
-      }
-    );
-
+export const addMember = async (boardId, userId) => {
+  const response = await api.post("/members/add", { boardId, userId });
   return response.data;
 };
