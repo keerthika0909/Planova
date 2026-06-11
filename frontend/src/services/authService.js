@@ -1,8 +1,10 @@
 import axios from "axios";
 
-const API =
-  "http://localhost:5000/api/auth";
+const API_URL = process.env.REACT_APP_API_URL;
 
+const response = await axios.get(
+  `${API_URL}/api/users`
+);
 export const loginUser = async (
   email,
   password
